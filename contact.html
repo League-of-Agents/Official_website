@@ -18,7 +18,6 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="index.html#services">Services</a></li>
-                <li><a href="index.html#about">About</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
         </nav>
@@ -26,50 +25,51 @@
 
     <main>
         <section class="contact-hero">
-            <h1>联系我们</h1>
-            <p>我们期待听到您的声音</p>
+            <h1>Contact Us</h1>
+            <p>We look forward to hearing from you!</p>
         </section>
 
         <section class="contact-container">
             <div class="contact-info">
-                <h2>联系方式</h2>
+                <h2>Contact Information</h2>
+                <div class="info-item">
+                    <span class="icon">🌐</span>
+                    <p>www.loagents.com</p>
+                </div>
                 <div class="info-item">
                     <span class="icon">📧</span>
-                    <p>info@leagueofagents.com</p>
+                    <p>contact@loagents.com</p>
                 </div>
                 <div class="info-item">
-                    <span class="icon">📍</span>
-                    <p>123 Blockchain Street<br>Crypto City, CC 12345</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-icon">Twitter</a>
-                    <a href="#" class="social-icon">LinkedIn</a>
-                    <a href="#" class="social-icon">GitHub</a>
+                    <span class="icon">𝕏</span>
+                    <p>@loagents</p>
                 </div>
             </div>
 
-            <form id="contact-form" class="contact-form">
+            <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+                <input type="hidden" name="access_key" value="65647ee3-1ed2-4547-95e1-fba3c34dab96">
+                
                 <div class="form-group">
-                    <label for="name">姓名</label>
+                    <label for="name">Name</label>
                     <input type="text" id="name" name="name" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="email">邮箱</label>
+                    <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="company">公司</label>
+                    <label for="company">Company</label>
                     <input type="text" id="company" name="company">
                 </div>
                 
                 <div class="form-group">
-                    <label for="message">留言</label>
+                    <label for="message">Message</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
                 </div>
                 
-                <button type="submit" class="submit-button">发送消息</button>
+                <button type="submit" class="submit-button">Send Message</button>
             </form>
         </section>
     </main>

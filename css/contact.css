@@ -38,8 +38,14 @@
 }
 
 .info-item .icon {
-    font-size: 1.5rem;
-    margin-right: 1rem;
+    font-size: 1.2rem;
+    margin-right: 0.5rem;
+    color: var(--accent-color);
+    transition: color 0.3s ease;
+}
+
+.info-item:hover .icon {
+    color: #ffffff;
 }
 
 .social-links {
@@ -49,17 +55,17 @@
 }
 
 .social-icon {
-    color: var(--primary-color);
+    color: var(--accent-color);
     text-decoration: none;
     padding: 0.5rem 1rem;
-    border: 1px solid var(--primary-color);
+    border: 1px solid var(--accent-color);
     border-radius: 5px;
     transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-    background-color: var(--primary-color);
-    color: white;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
 }
 
 .contact-form {
@@ -76,7 +82,7 @@
 .form-group label {
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--dark-gray);
+    color: #000000;
     font-weight: 600;
 }
 
@@ -94,18 +100,20 @@
 }
 
 .submit-button {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     color: var(--primary-color);
     border: none;
     padding: 1rem 2rem;
     border-radius: 5px;
     font-weight: 600;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, background-color 0.3s ease;
 }
 
 .submit-button:hover {
     transform: translateY(-2px);
+    background-color: #ffffff;
+    color: var(--accent-color);
 }
 
 @media (max-width: 768px) {
