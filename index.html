@@ -9,11 +9,16 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- AOS CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 <body>
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
+                <img src="images/logo.jpg" alt="League of Agents Logo">
                 <span class="logo-text">League of Agents</span>
             </div>
             <ul class="nav-links">
@@ -26,13 +31,13 @@
 
     <main>
         <section id="hero" class="hero-section">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
                 <h1>League of Agents</h1>
-                <p class="typewriter">1st Agent to Agent Security Solution</p>
+                <p class="typewriter">Leading the Future of AI-to-AI Cyber Defense</p>
                 <p class="typewriter-delay">Empowering Web3 with Advanced AI Security </p>
                 <a href="#services" class="cta-button">Initialize Security Agent</a>
             </div>
-            <div class="hero-image">
+            <div class="hero-image" data-aos="fade-left" data-aos-duration="1000">
                 <div class="security-bot">
                     <div class="bot-head">
                         <div class="bot-eye"></div>
@@ -60,39 +65,39 @@
         </section>
 
         <section id="services" class="services-section">
-            <h2>AI Security Suite</h2>
+            <h2 data-aos="fade-up">AI Security Suite</h2>
             <div class="features-grid">
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
                     <h3>Prompt Injection Firewall</h3>
                     <p>Protect against unauthorized AI prompt manipulations</p>
                     <p class="feature-detail">Advanced protection system against AI-based attacks</p>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
                     <h3>AI-Driven Real-Time Risk Scoring</h3>
                     <p>Continuous risk assessment with AI insights</p>
                     <p class="feature-detail">Real-time monitoring and risk evaluation</p>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
                     <h3>Threat Intelligence Network</h3>
                     <p>On-Chain & Off-Chain Threat Intelligence</p>
                     <p class="feature-detail">Comprehensive security data integration</p>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="400">
                     <h3>Autonomous AI Defense System</h3>
                     <p>Self-sufficient AI defense mechanisms</p>
                     <p class="feature-detail">24/7 automated security protection</p>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="500">
                     <h3>Secure Agent Communication</h3>
                     <p>Verifiable Agent Authentication</p>
                     <p class="feature-detail">Ensuring secure and authenticated interactions</p>
                 </div>
 
-                <div class="feature-card">
+                <div class="feature-card" data-aos="fade-up" data-aos-delay="600">
                     <h3>AI Agent Security Certificate</h3>
                     <p>Security & Compliance Standards</p>
                     <p class="feature-detail">Certified security standards for AI agents</p>
@@ -101,10 +106,10 @@
         </section>
 
         <section id="use-case" class="use-case-section">
-            <h2>Threat Scenario</h2>
+            <h2 data-aos="fade-up">Threat Scenario</h2>
             <div class="scenario-container">
                 <div class="scenario-timeline">
-                    <div class="timeline-item attack">
+                    <div class="timeline-item attack" data-aos="fade-right" data-aos-duration="800">
                         <div class="timeline-content">
                             <h3>Normal Operation</h3>
                             <div class="code-block">
@@ -116,7 +121,7 @@ Status: Normal ✓</code></pre>
                         </div>
                     </div>
 
-                    <div class="timeline-item attack warning">
+                    <div class="timeline-item attack warning" data-aos="fade-left" data-aos-duration="800" data-aos-delay="200">
                         <div class="timeline-content">
                             <h3>Prompt Injection Attack</h3>
                             <div class="code-block attack-code">
@@ -127,17 +132,17 @@ Status: BLOCKED ⚠️</code></pre>
                         </div>
                     </div>
 
-                    <div class="timeline-item defense">
+                    <div class="timeline-item defense" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                         <div class="timeline-content">
                             <h3>LoA Protection</h3>
                             <div class="protection-features">
-                                <div class="feature">
+                                <div class="feature" data-aos="zoom-in" data-aos-delay="600">
                                     <p>Prompt Injection Firewall</p>
                                 </div>
-                                <div class="feature">
+                                <div class="feature" data-aos="zoom-in" data-aos-delay="700">
                                     <p>Real-time Command Validation</p>
                                 </div>
-                                <div class="feature">
+                                <div class="feature" data-aos="zoom-in" data-aos-delay="800">
                                     <p>Secure Agent Authentication</p>
                                 </div>
                             </div>
@@ -147,12 +152,213 @@ Status: BLOCKED ⚠️</code></pre>
             </div>
         </section>
 
+        <section id="core-values" class="core-values-section">
+            <h2 data-aos="fade-up">Core Values</h2>
+            <div class="values-container" data-aos="zoom-in" data-aos-duration="1200">
+                <div class="hex-row">
+                    <div class="hex-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="hex-content">
+                            <span class="hex-number">1</span>
+                            <div class="value-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Security First</h3>
+                            <p>Unwavering commitment to protecting digital assets</p>
+                        </div>
+                    </div>
+                    <div class="hex-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="hex-content">
+                            <span class="hex-number">2</span>
+                            <div class="value-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <h3>AI Innovation</h3>
+                            <p>Pioneering AI-driven security solutions</p>
+                        </div>
+                    </div>
+                    <div class="hex-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="hex-content">
+                            <span class="hex-number">3</span>
+                            <div class="value-icon">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <h3>Decentralized Trust</h3>
+                            <p>Embracing Web3's trustless principles</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="hex-row offset">
+                    <div class="hex-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="hex-content">
+                            <span class="hex-number">4</span>
+                            <div class="value-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Community Driven</h3>
+                            <p>Building together with our users</p>
+                        </div>
+                    </div>
+                    <div class="hex-item" data-aos="fade-up" data-aos-delay="500">
+                        <div class="hex-content">
+                            <span class="hex-number">5</span>
+                            <div class="value-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <h3>Privacy Focused</h3>
+                            <p>Protecting user data and privacy</p>
+                        </div>
+                    </div>
+                    <div class="hex-item" data-aos="fade-up" data-aos-delay="600">
+                        <div class="hex-content">
+                            <span class="hex-number">6</span>
+                            <div class="value-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Self-Evolving Defense</h3>
+                            <p> adapts in real-time to counter emerging threats</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                .core-values-section {
+                    padding: 8rem 2rem;
+                    background-color: #000000;
+                    color: #ffffff;
+                    position: relative;
+                    overflow: hidden;
+                }
+
+                .core-values-section h2 {
+                    text-align: center;
+                    margin-bottom: 6rem;
+                    font-size: 2.5rem;
+                    color: #ffffff;
+                }
+
+                .values-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    padding: 0 2rem;
+                }
+
+                .hex-row {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 2rem;
+                    gap: 2rem;
+                }
+
+                .hex-row.offset {
+                    margin-top: -2rem;
+                }
+
+                .hex-item {
+                    width: 300px;
+                    height: 340px;
+                    position: relative;
+                    cursor: pointer;
+                    transition: transform 0.3s ease;
+                }
+
+                .hex-item:hover {
+                    transform: translateY(-10px);
+                }
+
+                .hex-content {
+                    width: 100%;
+                    height: 100%;
+                    position: relative;
+                    background: rgba(1, 255, 255, 0.03);
+                    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+                    padding: 2rem;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                    border: 1px solid rgba(1, 255, 255, 0.1);
+                    transition: all 0.3s ease;
+                }
+
+                .hex-item:hover .hex-content {
+                    background: rgba(1, 255, 255, 0.05);
+                    box-shadow: 0 0 30px rgba(1, 255, 255, 0.1);
+                }
+
+                .hex-number {
+                    position: absolute;
+                    top: 1rem;
+                    left: 1rem;
+                    font-size: 1.2rem;
+                    color: #01ffff;
+                    font-weight: bold;
+                }
+
+                .value-icon {
+                    font-size: 2.5rem;
+                    color: #01ffff;
+                    margin-bottom: 1.5rem;
+                    text-shadow: 0 0 15px rgba(1, 255, 255, 0.5);
+                }
+
+                .hex-content h3 {
+                    color: #01ffff;
+                    font-size: 1.4rem;
+                    margin-bottom: 1rem;
+                }
+
+                .hex-content p {
+                    font-size: 0.9rem;
+                    color: rgba(255, 255, 255, 0.8);
+                    line-height: 1.4;
+                    max-width: 80%;
+                }
+
+                @media (max-width: 1200px) {
+                    .hex-item {
+                        width: 250px;
+                        height: 290px;
+                    }
+                    .hex-row {
+                        gap: 1.5rem;
+                    }
+                }
+
+                @media (max-width: 900px) {
+                    .hex-row {
+                        flex-wrap: wrap;
+                        gap: 2rem;
+                    }
+                    .hex-row.offset {
+                        margin-top: 2rem;
+                    }
+                    .hex-item {
+                        width: 280px;
+                        height: 320px;
+                    }
+                }
+
+                @media (max-width: 640px) {
+                    .hex-item {
+                        width: 100%;
+                        height: auto;
+                        aspect-ratio: 1;
+                        max-width: 300px;
+                    }
+                    .hex-content {
+                        padding: 1.5rem;
+                    }
+                }
+            </style>
+        </section>
+
         <section id="why-security" class="why-security-section">
-            <h2>Why On-Chain Security Matters</h2>
+            <h2 data-aos="fade-up">Why On-Chain Security Matters</h2>
             <div class="quotes-container">
-                <div class="quote-card">
+                <div class="quote-card" data-aos="fade-right" data-aos-delay="100">
                     <div class="quote-content">
-                        <span class="quote-mark">"</span>
                         <p>In 2023, over $1.7 billion was lost to blockchain exploits and hacks. Traditional security measures are no longer sufficient in the Web3 era.</p>
                         <div class="quote-source">
                             <span>DeFi Security Report</span>
@@ -160,9 +366,8 @@ Status: BLOCKED ⚠️</code></pre>
                         </div>
                     </div>
                 </div>
-                <div class="quote-card highlight">
+                <div class="quote-card highlight" data-aos="fade-up" data-aos-delay="200">
                     <div class="quote-content">
-                        <span class="quote-mark">"</span>
                         <p>The future of blockchain security lies in AI-driven, agent-based systems that can autonomously detect and respond to threats in real-time.</p>
                         <div class="quote-source">
                             <span>Blockchain Security Summit</span>
@@ -170,9 +375,8 @@ Status: BLOCKED ⚠️</code></pre>
                         </div>
                     </div>
                 </div>
-                <div class="quote-card">
+                <div class="quote-card" data-aos="fade-left" data-aos-delay="300">
                     <div class="quote-content">
-                        <span class="quote-mark">"</span>
                         <p>Smart contract vulnerabilities remain the #1 attack vector in DeFi. AI-powered security solutions are becoming essential for protocol safety.</p>
                         <div class="quote-source">
                             <span>Web3 Security Analysis</span>
@@ -182,25 +386,90 @@ Status: BLOCKED ⚠️</code></pre>
                 </div>
             </div>
             <div class="security-stats">
-                <div class="stat-item">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="100">
                     <h3>$1.7B+</h3>
                     <p>Lost to Hacks in 2023</p>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
                     <h3>80%</h3>
                     <p>of Attacks Preventable</p>
                 </div>
-                <div class="stat-item">
+                <div class="stat-item" data-aos="zoom-in" data-aos-delay="300">
                     <h3>24/7</h3>
                     <p>AI Protection Needed</p>
                 </div>
             </div>
         </section>
 
+        <section id="roadmap" class="roadmap-section">
+            <h2 data-aos="fade-up">The Road to Release</h2>
+            <div class="roadmap-timeline">
+                <div class="timeline-milestone" data-aos="fade-right">
+                    <div class="milestone-number">1</div>
+                    <div class="milestone-content">
+                        <h3>Research & Development (Feb 2025)</h3>
+                        <ul>
+                            <li>Core AI security architecture development</li>
+                            <li>Agent-to-Agent communication protocol design</li>
+                            <li>Initial prototype of Prompt Injection Firewall</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone" data-aos="fade-left">
+                    <div class="milestone-number">2</div>
+                    <div class="milestone-content">
+                        <h3>Alpha Testing (March 2025)</h3>
+                        <ul>
+                            <li>Integration with major blockchain networks</li>
+                            <li>Implementation of AI-Driven Risk Scoring</li>
+                            <li>Security certificate system development</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone" data-aos="fade-right">
+                    <div class="milestone-number">3</div>
+                    <div class="milestone-content">
+                        <h3>Beta Launch (April 2025)</h3>
+                        <ul>
+                            <li>Public beta testing program</li>
+                            <li>Threat Intelligence Network deployment</li>
+                            <li>Partnership program initiation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone" data-aos="fade-left">
+                    <div class="milestone-number">4</div>
+                    <div class="milestone-content">
+                        <h3>Platform Enhancement (June 2025)</h3>
+                        <ul>
+                            <li>Advanced security features implementation</li>
+                            <li>Performance optimization</li>
+                            <li>Security audit and certification</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="timeline-milestone" data-aos="fade-right">
+                    <div class="milestone-number">5</div>
+                    <div class="milestone-content">
+                        <h3>Full Launch (July 2025)</h3>
+                        <ul>
+                            <li>Complete platform launch</li>
+                            <li>Global marketing campaign</li>
+                            <li>Enterprise partnership program</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="news" class="news-section">
-            <h2>Latest Updates</h2>
+            <h2 data-aos="fade-up">Latest Updates</h2>
             <div class="news-grid">
-                <article class="news-card featured">
+                <article class="news-card featured" data-aos="fade-up" data-aos-delay="100">
                     <div class="news-card-content">
                         <div class="news-meta">
                             <span class="news-tag">Announcement</span>
@@ -210,11 +479,11 @@ Status: BLOCKED ⚠️</code></pre>
                         <p class="news-excerpt">We're excited to announce our participation in the upcoming SVM Hackathon, where we'll be showcasing our revolutionary Agent-to-Agent security solution. Our groundbreaking product is scheduled for release in March 2025, marking a new era in blockchain security.</p>
                         <div class="news-highlights">
                             <div class="highlight-item">
-                                <span class="highlight-icon">🚀</span>
+                                <span class="highlight-icon"><i class="fas fa-rocket"></i></span>
                                 <p>SVM Hackathon Participation</p>
                             </div>
                             <div class="highlight-item">
-                                <span class="highlight-icon">📅</span>
+                                <span class="highlight-icon"><i class="fas fa-calendar"></i></span>
                                 <p>Product Launch: March 2025</p>
                             </div>
                         </div>
@@ -227,11 +496,11 @@ Status: BLOCKED ⚠️</code></pre>
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-copyright">
-                © 2024 League of Agents. All rights reserved.
+                © 2025 League of Agents. All rights reserved.
             </div>
             <div class="footer-links">
                 <a href="https://x.com/loagents" target="_blank" class="social-button">
-                    <span class="x-icon">𝕏</span> View on X
+                    <i class="fab fa-x-twitter"></i> View on X
                 </a>
                 <a href="#">Privacy Policy</a>
                 <a href="#">Terms of Service</a>
@@ -240,6 +509,28 @@ Status: BLOCKED ⚠️</code></pre>
     </footer>
 
     <script src="js/main.js"></script>
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            offset: 200,
+            duration: 800,
+            easing: 'ease-in-out',
+            once: false,
+            mirror: true
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 
     <style>
         @media (max-width: 768px) {
@@ -308,6 +599,248 @@ Status: BLOCKED ⚠️</code></pre>
 
         .hero-image {
             /* Add styles for your image or illustration */
+        }
+
+        .roadmap-section {
+            padding: 4rem 2rem;
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .roadmap-section h2 {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 2.5rem;
+            color: #ffffff;
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: #01ffff;
+            top: 0;
+            box-shadow: 0 0 15px rgba(1, 255, 255, 0.5);
+        }
+
+        .timeline-milestone {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .milestone-number {
+            width: 40px;
+            height: 40px;
+            background: #01ffff;
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(1, 255, 255, 0.5);
+        }
+
+        .milestone-content {
+            width: 45%;
+            padding: 2rem;
+            background: rgba(1, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-left: auto;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(1, 255, 255, 0.1);
+            box-shadow: 0 0 30px rgba(1, 255, 255, 0.05);
+        }
+
+        .timeline-milestone:nth-child(odd) .milestone-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .milestone-content h3 {
+            color: #01ffff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            text-shadow: 0 0 10px rgba(1, 255, 255, 0.3);
+        }
+
+        .milestone-content ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .milestone-content ul li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: #ffffff;
+        }
+
+        .milestone-content ul li::before {
+            content: '•';
+            color: #01ffff;
+            position: absolute;
+            left: 0;
+            text-shadow: 0 0 5px rgba(1, 255, 255, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-timeline::before {
+                left: 20px;
+            }
+
+            .milestone-number {
+                left: 20px;
+                transform: none;
+            }
+
+            .milestone-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-milestone:nth-child(odd) .milestone-content {
+                margin-right: 0;
+            }
+        }
+
+        /* Enhanced Threat Scenario Animations */
+        .timeline-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .timeline-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(1, 255, 255, 0.1);
+        }
+
+        .protection-features .feature {
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .protection-features .feature:hover {
+            transform: scale(1.05);
+            background-color: rgba(1, 255, 255, 0.1);
+        }
+
+        .code-block {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .code-block::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(1, 255, 255, 0.1), transparent);
+            transform: translateX(-100%);
+            animation: scanning 2s linear infinite;
+        }
+
+        @keyframes scanning {
+            100% {
+                transform: translateX(100%);
+            }
+        }
+
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background-color: #000000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0.7rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        .logo img {
+            height: 32px;
+            width: auto;
+            filter: brightness(1.1);
+        }
+
+        .logo-text {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0.7rem 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .logo img {
+                height: 28px;
+            }
+
+            .logo-text {
+                font-size: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
         }
     </style>
 </body>
