@@ -33,14 +33,14 @@
 
     <main>
         <section id="hero" class="hero-section">
-            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+            <div class="hero-content" data-parallax="0.2">
                 <h1 data-aos="fade-up" data-aos-delay="200">League of Agents</h1>
                 <p class="typewriter" data-aos="fade-up" data-aos-delay="400">Leading the Future of AI-to-AI Cyber Defense</p>
                 <p class="typewriter-delay" data-aos="fade-up" data-aos-delay="600">Empowering Web3 with Advanced AI Security </p>
                 <a href="#services" class="cta-button" data-aos="fade-up" data-aos-delay="800">Initialize Security Agent</a>
             </div>
-            <div class="hero-image" data-aos="zoom-in" data-aos-duration="1200">
-                <div class="security-bot">
+            <div class="hero-image" data-parallax="0.3">
+                <div class="security-bot" data-aos="zoom-in" data-aos-duration="1200">
                     <div class="bot-head">
                         <div class="bot-eye"></div>
                         <div class="scan-line"></div>
@@ -516,24 +516,34 @@ Status: BLOCKED ⚠️</code></pre>
     <script>
         // Initialize AOS with enhanced settings
         AOS.init({
-            offset: 100,          // 触发动画的偏移距离
-            duration: 800,        // 动画持续时间
-            easing: 'ease-out',   // 动画缓动函数
-            once: true,           // 动画只播放一次
-            mirror: false,        // 禁用退出动画
-            anchorPlacement: 'top-bottom', // 动画触发位置
-            disable: 'mobile'     // 在移动设备上禁用以提高性能
+            offset: 100,
+            duration: 800,
+            easing: 'ease-out',
+            once: true,
+            mirror: false,
+            anchorPlacement: 'top-bottom',
+            disable: false
         });
 
-        // 添加滚动监听以实现视差效果
+        // Enhanced parallax scroll effect
         window.addEventListener('scroll', function() {
             const scrolled = window.pageYOffset;
-            const parallaxElements = document.querySelectorAll('.parallax');
             
-            parallaxElements.forEach(element => {
-                const speed = element.dataset.speed || 0.5;
-                element.style.transform = `translateY(${scrolled * speed}px)`;
+            // Apply parallax effect to elements with data-parallax attribute
+            document.querySelectorAll('[data-parallax]').forEach(element => {
+                const speed = element.getAttribute('data-parallax') || 0.5;
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translate3d(0, ${yPos}px, 0)`;
             });
+
+            // Apply parallax effect to hero section elements
+            const heroContent = document.querySelector('.hero-content');
+            const heroImage = document.querySelector('.hero-image');
+            
+            if (heroContent && heroImage) {
+                heroContent.style.transform = `translate3d(0, ${scrolled * 0.2}px, 0)`;
+                heroImage.style.transform = `translate3d(0, ${scrolled * 0.3}px, 0)`;
+            }
         });
 
         // Smooth scroll for anchor links
@@ -556,7 +566,7 @@ Status: BLOCKED ⚠️</code></pre>
 
         /* 增强现有动画效果 */
         [data-aos] {
-            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-timing-function: cubic-bezier(0,0,0.2,1);
         }
 
         /* 为不同部分添加独特的动画效果 */
@@ -592,298 +602,154 @@ Status: BLOCKED ⚠️</code></pre>
         }
 
         .hero-section {
-            padding-top: 100px;
+            padding-top: 140px;
             min-height: 100vh;
             display: flex;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             background-color: #000000;
+            gap: 4rem;
+            position: relative;
+            width: 100vw;
+            left: 50%;
+            right: 50%;
+            margin-left: -50vw;
+            margin-right: -50vw;
+        }
+
+        .hero-section > .hero-content,
+        .hero-section > .hero-image {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .hero-content {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
+            text-align: left;
+            max-width: 45%;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-left: 2rem;
         }
 
         .hero-image {
+            flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin: 2rem auto;
-            width: 100%;
-            max-width: 500px;
+            max-width: 48%;
+            transform: translateZ(0);
+            will-change: transform;
+            margin-right: 2rem;
         }
 
         @media (max-width: 768px) {
             .hero-section {
-                padding-top: 80px;
+                flex-direction: column;
+                padding-top: 120px;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                text-align: center;
+                gap: 2rem;
             }
 
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero-content {
+                margin-left: 0;
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+                padding: 0 10px;
+            }
+
+            .hero-image {
+                max-width: 80%;
+                margin: 1rem auto;
+            }
+        }
+
+        /* Enhanced parallax effects */
+        .parallax-wrapper {
+            position: relative;
+            overflow: hidden;
+            will-change: transform;
+        }
+
+        [data-parallax] {
+            transition: transform 0.1s cubic-bezier(0,0,0.2,1);
+            will-change: transform;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-item .timeline-content {
+                padding: 1.5rem;
+                font-size: 0.9rem;
             }
 
             .timeline-item .code-block {
-                font-size: 0.85rem;
-                padding: 0.5rem;
-                overflow-x: auto;
-            }
-
-            .timeline-item .timeline-content h3 {
-                font-size: 1.1rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .hex-content {
                 padding: 1rem;
+                margin: 0.5rem 0;
+                overflow-x: auto;
+                white-space: pre-wrap;
+                word-break: break-word;
             }
 
-            .hex-content h3 {
-                font-size: 1.2rem;
-                margin-bottom: 0.5rem;
-            }
-
-            .hex-content p {
+            .timeline-item .code-block pre {
+                margin: 0;
                 font-size: 0.8rem;
-                line-height: 1.3;
-                max-width: 90%;
+                line-height: 1.4;
             }
 
-            .value-icon {
-                font-size: 2rem;
-                margin-bottom: 1rem;
+            .timeline-item h3 {
+                font-size: 1.1rem;
+                margin-bottom: 0.8rem;
+            }
+
+            .protection-features .feature p {
+                font-size: 0.85rem;
+                line-height: 1.3;
+                margin: 0.5rem 0;
+            }
+
+            .hero-section {
+                flex-direction: column;
+                padding-top: 120px;
+                padding-left: 1rem;
+                padding-right: 1rem;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-content {
+                margin-left: 0;
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .hero-content h1 {
+                margin-left: 0;
+            }
+
+            .hero-image {
+                max-width: 80%;
+                margin: 1rem 0;
             }
         }
 
         @media (max-width: 480px) {
-            .hex-content {
+            .timeline-item .code-block {
+                font-size: 0.75rem;
                 padding: 0.8rem;
             }
 
-            .hex-content h3 {
-                font-size: 1.1rem;
+            .timeline-item .timeline-content {
+                padding: 1.2rem;
             }
 
-            .hex-content p {
-                font-size: 0.75rem;
-                max-width: 95%;
-            }
-
-            .timeline-item .code-block {
-                font-size: 0.8rem;
-            }
-        }
-
-        .hero {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 4rem;
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        .stats {
-            display: flex;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat h2 {
-            font-size: 2rem;
-            color: #01ffff;
-        }
-
-        .stat p {
-            font-size: 1rem;
-            color: #ffffff;
-        }
-
-        .launch-button {
-            background-color: #01ffff;
-            color: #000000;
-            padding: 1rem 2rem;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .launch-button:hover {
-            background-color: #00e6e6;
-        }
-
-        .roadmap-section {
-            padding: 4rem 2rem;
-            background-color: #000000;
-            color: #ffffff;
-        }
-
-        .roadmap-section h2 {
-            text-align: center;
-            margin-bottom: 4rem;
-            font-size: 2.5rem;
-            color: #ffffff;
-        }
-
-        .roadmap-timeline {
-            position: relative;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-
-        .roadmap-timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 2px;
-            height: 100%;
-            background: #01ffff;
-            top: 0;
-            box-shadow: 0 0 15px rgba(1, 255, 255, 0.5);
-        }
-
-        .timeline-milestone {
-            position: relative;
-            margin-bottom: 4rem;
-            width: 100%;
-            display: flex;
-            align-items: flex-start;
-        }
-
-        .milestone-number {
-            width: 40px;
-            height: 40px;
-            background: #01ffff;
-            color: #000000;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 2;
-            box-shadow: 0 0 20px rgba(1, 255, 255, 0.5);
-        }
-
-        .milestone-content {
-            width: 45%;
-            padding: 2rem;
-            background: rgba(1, 255, 255, 0.03);
-            border-radius: 10px;
-            margin-left: auto;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(1, 255, 255, 0.1);
-            box-shadow: 0 0 30px rgba(1, 255, 255, 0.05);
-        }
-
-        .timeline-milestone:nth-child(odd) .milestone-content {
-            margin-left: 0;
-            margin-right: auto;
-        }
-
-        .milestone-content h3 {
-            color: #01ffff;
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            text-shadow: 0 0 10px rgba(1, 255, 255, 0.3);
-        }
-
-        .milestone-content ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .milestone-content ul li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #ffffff;
-        }
-
-        .milestone-content ul li::before {
-            content: '•';
-            color: #01ffff;
-            position: absolute;
-            left: 0;
-            text-shadow: 0 0 5px rgba(1, 255, 255, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .roadmap-timeline::before {
-                left: 20px;
-            }
-
-            .milestone-number {
-                left: 20px;
-                transform: none;
-            }
-
-            .milestone-content {
-                width: calc(100% - 60px);
-                margin-left: 60px !important;
-            }
-
-            .timeline-milestone:nth-child(odd) .milestone-content {
-                margin-right: 0;
-            }
-        }
-
-        .timeline-item {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 5px 15px rgba(1, 255, 255, 0.1);
-        }
-
-        .protection-features .feature {
-            transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-
-        .protection-features .feature:hover {
-            transform: scale(1.05);
-            background-color: rgba(1, 255, 255, 0.1);
-        }
-
-        .code-block {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .code-block::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(1, 255, 255, 0.1), transparent);
-            transform: translateX(-100%);
-            animation: scanning 2s linear infinite;
-        }
-
-        @keyframes scanning {
-            100% {
-                transform: translateX(100%);
+            .protection-features .feature {
+                padding: 0.5rem;
             }
         }
 
@@ -1000,6 +866,171 @@ Status: BLOCKED ⚠️</code></pre>
             .waitlist-button {
                 padding: 0.5rem 1rem;
                 font-size: 0.8rem;
+            }
+        }
+
+        /* 修复 Road to Release 部分 */
+        .roadmap-section {
+            padding: 6rem 2rem;
+            background-color: #000000;
+            color: #ffffff;
+            position: relative;
+        }
+
+        .roadmap-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem 0;
+        }
+
+        .roadmap-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: calc(100% - 100px);
+            background: #01ffff;
+            top: 50px;
+        }
+
+        .timeline-milestone {
+            position: relative;
+            margin-bottom: 4rem;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .milestone-number {
+            width: 40px;
+            height: 40px;
+            background: #01ffff;
+            color: #000000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            box-shadow: 0 0 20px rgba(1, 255, 255, 0.3);
+        }
+
+        .milestone-content {
+            width: 45%;
+            padding: 2rem;
+            background: rgba(1, 255, 255, 0.03);
+            border-radius: 10px;
+            margin-left: auto;
+            position: relative;
+            border: 1px solid rgba(1, 255, 255, 0.1);
+        }
+
+        .timeline-milestone:nth-child(odd) .milestone-content {
+            margin-left: 0;
+            margin-right: auto;
+        }
+
+        .milestone-content h3 {
+            color: #01ffff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .milestone-content ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .milestone-content ul li {
+            margin-bottom: 0.8rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.95rem;
+        }
+
+        .milestone-content ul li::before {
+            content: '•';
+            color: #01ffff;
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-timeline::before {
+                left: 20px;
+            }
+
+            .milestone-number {
+                left: 20px;
+                transform: none;
+            }
+
+            .milestone-content {
+                width: calc(100% - 60px);
+                margin-left: 40px !important;
+            }
+
+            .timeline-milestone:nth-child(odd) .milestone-content {
+                margin-right: 0;
+            }
+
+            .milestone-content h3 {
+                font-size: 1.1rem;
+            }
+
+            .milestone-content ul li {
+                font-size: 0.9rem;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+                align-items: center;
+            }
+
+            .hero-content h1 {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .milestone-content {
+                padding: 1.5rem;
+            }
+
+            .milestone-content ul li {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+        }
+
+        /* Road to Release 标题样式 */
+        .roadmap-section h2 {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 4rem;
+            background: linear-gradient(to right, #fff, #01ffff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 768px) {
+            .roadmap-section h2 {
+                font-size: 2.2rem;
+                margin-bottom: 3rem;
             }
         }
     </style>
