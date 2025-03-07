@@ -33,35 +33,37 @@
 
     <main>
         <section id="hero" class="hero-section">
-            <div class="hero-content" data-parallax="0.2">
-                <h1 data-aos="fade-up" data-aos-delay="200">League of Agents</h1>
-                <p class="typewriter" data-aos="fade-up" data-aos-delay="400">Leading the Future of AI-to-AI Cyber Defense</p>
-                <p class="typewriter-delay" data-aos="fade-up" data-aos-delay="600">Empowering Web3 with Advanced AI Security </p>
-                <a href="#services" class="cta-button" data-aos="fade-up" data-aos-delay="800">Initialize Security Agent</a>
-            </div>
-            <div class="hero-image" data-parallax="0.3">
-                <div class="security-bot" data-aos="zoom-in" data-aos-duration="1200">
-                    <div class="bot-head">
-                        <div class="bot-eye"></div>
-                        <div class="scan-line"></div>
-                    </div>
-                    <div class="bot-body">
-                        <div class="shield-container">
-                            <div class="shield"></div>
-                            <div class="shield-glow"></div>
+            <div class="hero-wrapper">
+                <div class="hero-content" data-parallax="0.2">
+                    <h1 data-aos="fade-up" data-aos-delay="200">League of Agents</h1>
+                    <p class="typewriter" data-aos="fade-up" data-aos-delay="400">Leading the Future of AI-to-AI Cyber Defense</p>
+                    <p class="typewriter-delay" data-aos="fade-up" data-aos-delay="600">Empowering Web3 with Advanced AI Security </p>
+                    <a href="#services" class="cta-button" data-aos="fade-up" data-aos-delay="800">Initialize Security Agent</a>
+                </div>
+                <div class="hero-image" data-parallax="0.3">
+                    <div class="security-bot" data-aos="zoom-in" data-aos-duration="1200">
+                        <div class="bot-head">
+                            <div class="bot-eye"></div>
+                            <div class="scan-line"></div>
                         </div>
-                        <div class="status-lights">
-                            <div class="light"></div>
-                            <div class="light"></div>
-                            <div class="light"></div>
+                        <div class="bot-body">
+                            <div class="shield-container">
+                                <div class="shield"></div>
+                                <div class="shield-glow"></div>
+                            </div>
+                            <div class="status-lights">
+                                <div class="light"></div>
+                                <div class="light"></div>
+                                <div class="light"></div>
+                            </div>
                         </div>
+                        <div class="security-ring">
+                            <div class="ring-segment"></div>
+                            <div class="ring-segment"></div>
+                            <div class="ring-segment"></div>
+                        </div>
+                        <div class="scan-radius"></div>
                     </div>
-                    <div class="security-ring">
-                        <div class="ring-segment"></div>
-                        <div class="ring-segment"></div>
-                        <div class="ring-segment"></div>
-                    </div>
-                    <div class="scan-radius"></div>
                 </div>
             </div>
         </section>
@@ -525,9 +527,43 @@ Status: BLOCKED ⚠️</code></pre>
             disable: false
         });
 
-        // Enhanced parallax scroll effect
-        window.addEventListener('scroll', function() {
+        // Enhanced scroll animation for AI Security Suite
+        function handleScroll() {
+            const servicesSection = document.querySelector('.services-section');
+            const featuresGrid = document.querySelector('.features-grid');
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            const triggerPoint = window.innerHeight * 0.8;
+
+            if (servicesSection) {
+                const sectionTop = servicesSection.getBoundingClientRect().top;
+                if (sectionTop < triggerPoint) {
+                    servicesSection.classList.add('visible');
+                    setTimeout(() => {
+                        featuresGrid.classList.add('visible');
+                        featureCards.forEach((card, index) => {
+                            setTimeout(() => {
+                                card.classList.add('visible');
+                            }, 100 * (index + 1));
+                        });
+                    }, 300);
+                }
+            }
+        }
+
+        // Enhanced parallax scroll effect with performance optimization
+        const parallaxElements = {
+            services: document.querySelector('.services-section'),
+            coreValues: document.querySelector('.core-values-section'),
+            threatScenario: document.querySelector('.use-case-section')
+        };
+
+        let ticking = false;
+        let lastScrollY = window.pageYOffset;
+
+        function updateParallax() {
             const scrolled = window.pageYOffset;
+            handleScroll(); // Add scroll animation check
             
             // Apply parallax effect to elements with data-parallax attribute
             document.querySelectorAll('[data-parallax]').forEach(element => {
@@ -543,6 +579,44 @@ Status: BLOCKED ⚠️</code></pre>
             if (heroContent && heroImage) {
                 heroContent.style.transform = `translate3d(0, ${scrolled * 0.2}px, 0)`;
                 heroImage.style.transform = `translate3d(0, ${scrolled * 0.3}px, 0)`;
+            }
+
+            // Apply parallax effects to sections
+            if (parallaxElements.services) {
+                const servicesCards = parallaxElements.services.querySelectorAll('.feature-card');
+                servicesCards.forEach((card, index) => {
+                    const offset = (scrolled - card.offsetTop) * 0.1;
+                    card.style.transform = `translate3d(0, ${offset}px, 0)`;
+                });
+            }
+
+            if (parallaxElements.coreValues) {
+                const hexItems = parallaxElements.coreValues.querySelectorAll('.hex-item');
+                hexItems.forEach((item, index) => {
+                    const offset = (scrolled - item.offsetTop) * 0.08;
+                    item.style.transform = `translate3d(0, ${offset}px, 0)`;
+                });
+            }
+
+            if (parallaxElements.threatScenario) {
+                const timelineItems = parallaxElements.threatScenario.querySelectorAll('.timeline-item');
+                timelineItems.forEach((item, index) => {
+                    const offset = (scrolled - item.offsetTop) * 0.12;
+                    item.style.transform = `translate3d(0, ${offset}px, 0)`;
+                });
+            }
+
+            ticking = false;
+        }
+
+        // Optimized scroll event handler
+        window.addEventListener('scroll', function() {
+            lastScrollY = window.pageYOffset;
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    updateParallax();
+                });
+                ticking = true;
             }
         });
 
@@ -616,12 +690,20 @@ Status: BLOCKED ⚠️</code></pre>
             right: 50%;
             margin-left: -50vw;
             margin-right: -50vw;
+            overflow: hidden;
         }
 
-        .hero-section > .hero-content,
-        .hero-section > .hero-image {
+        .hero-wrapper {
             max-width: 1200px;
+            width: 100%;
             margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
         }
 
         .hero-content {
@@ -631,7 +713,9 @@ Status: BLOCKED ⚠️</code></pre>
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            margin-left: 2rem;
+            margin-left: 0;
+            transform-style: preserve-3d;
+            will-change: transform;
         }
 
         .hero-image {
@@ -640,9 +724,22 @@ Status: BLOCKED ⚠️</code></pre>
             justify-content: center;
             align-items: center;
             max-width: 48%;
-            transform: translateZ(0);
+            transform-style: preserve-3d;
             will-change: transform;
-            margin-right: 2rem;
+            margin: 0;
+        }
+
+        /* 增强视差效果 */
+        [data-parallax] {
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1);
+            will-change: transform;
+        }
+
+        /* 添加视差动画类 */
+        .parallax-scroll {
+            transform: translateY(var(--parallax-y, 0));
         }
 
         @media (max-width: 768px) {
@@ -655,17 +752,27 @@ Status: BLOCKED ⚠️</code></pre>
                 gap: 2rem;
             }
 
+            .hero-wrapper {
+                flex-direction: column;
+                padding: 0;
+            }
+
             .hero-content {
-                margin-left: 0;
+                margin: 0;
                 max-width: 100%;
                 text-align: center;
                 align-items: center;
-                padding: 0 10px;
+                padding: 0 1rem;
             }
 
             .hero-image {
                 max-width: 80%;
                 margin: 1rem auto;
+            }
+
+            /* 移动端减弱视差效果 */
+            [data-parallax] {
+                transform: none !important;
             }
         }
 
@@ -673,11 +780,6 @@ Status: BLOCKED ⚠️</code></pre>
         .parallax-wrapper {
             position: relative;
             overflow: hidden;
-            will-change: transform;
-        }
-
-        [data-parallax] {
-            transition: transform 0.1s cubic-bezier(0,0,0.2,1);
             will-change: transform;
         }
 
@@ -1031,6 +1133,86 @@ Status: BLOCKED ⚠️</code></pre>
             .roadmap-section h2 {
                 font-size: 2.2rem;
                 margin-bottom: 3rem;
+            }
+        }
+
+        /* Enhanced parallax effects */
+        .services-section .feature-card,
+        .core-values-section .hex-item,
+        .use-case-section .timeline-item {
+            will-change: transform;
+            transition: transform 0.1s cubic-bezier(0.2, 0, 0.2, 1);
+            backface-visibility: hidden;
+        }
+
+        .services-section .feature-card {
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .core-values-section .hex-item {
+            transform-style: preserve-3d;
+            perspective: 1200px;
+        }
+
+        .use-case-section .timeline-item {
+            transform-style: preserve-3d;
+            perspective: 800px;
+        }
+
+        /* Optimize for mobile */
+        @media (max-width: 768px) {
+            .services-section .feature-card,
+            .core-values-section .hex-item,
+            .use-case-section .timeline-item {
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+
+        /* AI Security Suite 进入动画效果 */
+        .services-section {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .services-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition-delay: 0.3s;
+        }
+
+        .features-grid.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .feature-card {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem;
             }
         }
     </style>
