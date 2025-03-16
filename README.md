@@ -1,4 +1,4 @@
-# League of Agent
+# League of Agents
 
 > Next-Generation Web3 Security Solution with AI Agents
 

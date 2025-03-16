@@ -1360,4 +1360,37 @@ h1, h2, h3, h4, h5, h6 {
         padding: 1rem;
         font-size: 0.9rem;
     }
+}
+
+.documentation-section {
+    padding: 6rem 2rem;
+    background-color: #000000;
+    text-align: center;
+}
+
+.documentation-section h2 {
+    font-size: 2.5rem;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px var(--accent-color);
+}
+
+.documentation-section p {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+}
+
+.iframe-container {
+    width: 100%;
+    height: 600px; /* Adjust height as needed */
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(1, 255, 255, 0.1);
+}
+
+.iframe-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
 } 
